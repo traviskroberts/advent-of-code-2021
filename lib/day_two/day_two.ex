@@ -1,12 +1,16 @@
 defmodule AdventOfCode.DayTwo do
-  def navigate(commands) do
-    commands
+  def part_one do
+    Path.expand("lib/day_two/input.txt")
+    |> File.read!()
+    |> String.split("\n")
     |> Enum.reduce(%{depth: 0, horizontal: 0}, &parse_cmd/2)
     |> calculate()
   end
 
-  def navigate_and_aim(commands) do
-    commands
+  def part_two do
+    Path.expand("lib/day_two/input.txt")
+    |> File.read!()
+    |> String.split("\n")
     |> Enum.reduce(%{depth: 0, horizontal: 0, aim: 0}, &parse_cmd/2)
     |> calculate()
   end
@@ -20,7 +24,7 @@ defmodule AdventOfCode.DayTwo do
 
     acc
     |> Map.put(:horizontal, acc[:horizontal] + val)
-    |> Map.put(:depth, acc[:depth] + (acc[:aim] * val))
+    |> Map.put(:depth, acc[:depth] + acc[:aim] * val)
   end
 
   defp do_command(["forward" | tail], acc) do

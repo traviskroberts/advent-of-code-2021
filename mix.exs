@@ -22,7 +22,7 @@ defmodule AdventOfCode2021.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:rexbug, ">= 1.0.0"},
+      {:rexbug, ">= 1.0.0"}
     ]
   end
 end

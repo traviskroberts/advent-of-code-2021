@@ -1,6 +1,8 @@
 defmodule AdventOfCode.DayThree do
-  def process(data) do
-    data
+  def part_one do
+    Path.expand("lib/day_three/input.txt")
+    |> File.read!()
+    |> String.split("\n")
     |> Enum.map(&parse/1)
     |> Enum.zip()
     |> Enum.map(&Tuple.to_list/1)
@@ -28,13 +30,13 @@ defmodule AdventOfCode.DayThree do
   end
 
   defp multiply([head | []]), do: head
+
   defp multiply([head | tail]) do
     head * multiply(tail)
   end
 
   defp parse(item) do
     item
-    |> Integer.to_string()
     |> String.pad_leading(12, "0")
     |> String.codepoints()
     |> Enum.map(&String.to_integer/1)

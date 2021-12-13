@@ -3,13 +3,13 @@ defmodule AdventOfCode.DaySevenTest do
 
   alias AdventOfCode.DaySeven
 
-  describe "part_one/1" do
+  describe "part_one/0" do
     test "it returns the correct value" do
       result = DaySeven.part_one()
-      assert result == 328262
+      assert result == 328_262
 
-      IO.puts "\nDay Seven - Problem One"
-      IO.puts "Answer: #{result}"
+      IO.puts("\nDay Seven - Problem One")
+      IO.puts("Answer: #{result}")
     end
   end
 end

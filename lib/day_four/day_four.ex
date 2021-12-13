@@ -15,6 +15,7 @@ defmodule AdventOfCode.DayFour do
 
   defp calculate_answer({board, numbers}) do
     last_number = hd(numbers) |> String.to_integer()
+
     board_total =
       board
       |> List.flatten()
@@ -29,9 +30,10 @@ defmodule AdventOfCode.DayFour do
     [next_number | remaining_numbers] = numbers
     called_numbers = [next_number | called_numbers]
 
-    winning_board = Enum.find(boards, fn board ->
-      row_winner?(board, called_numbers) || column_winner?(board, called_numbers)
-    end)
+    winning_board =
+      Enum.find(boards, fn board ->
+        row_winner?(board, called_numbers) || column_winner?(board, called_numbers)
+      end)
 
     if winning_board do
       {winning_board, called_numbers}
